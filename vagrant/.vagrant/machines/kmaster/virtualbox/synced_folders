@@ -1,1 +1,0 @@
-{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/Users/xvitcoder/Desktop/Workspace/kubernetes/vagrant-provisioning","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
