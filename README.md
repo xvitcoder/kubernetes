@@ -1,2 +1,2 @@
 # kubernetes
-Kubernetes playground
+Kubernetes development configs
