@@ -11,7 +11,7 @@ EOF
 
 # Install NFS utils
 echo "[TASK 2] Install NFS server"
-apt install -y nfs-kernel-server > /dev/null 2>&1
+apt install -y nfs-utils > /dev/null 2>&1
 
 echo "[TASK 4] Create export share"
 mkdir -p /srv/nfs/kubedata
@@ -22,5 +22,5 @@ exportfs -rav
 
 # Enable NFS service
 echo "[TASK 3] Enable and start NFS service"
-systemctl enable nfs-kernel-server >/dev/null 2>&1
-systemctl start nfs-kernel-server
+systemctl enable nfs-server >/dev/null 2>&1
+systemctl start nfs-server
