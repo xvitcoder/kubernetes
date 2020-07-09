@@ -1,1 +1,3 @@
-vagrant/.vagrant
+vagrant-bash/.vagrant
+vagrant-ansible/.vagrant
+.idea
