@@ -1,0 +1,24 @@
+replicaCount: 1
+
+service:
+  name: registry
+  type: LoadBalancer
+  port: 5000
+  loadBalancerIP: 172.42.42.20
+
+persistence:
+  accessMode: 'ReadWriteOnce'
+  enabled: true
+  size: 20Gi
+  storageClass: 'managed-nfs-storage'
+
+# tlsSecretName: registry.docker.example.com
+secrets:
+  haSharedSecret: "admin"
+  htpasswd: "admin"
+
+securityContext:
+  enabled: true
+  runAsUser: 1000
+  fsGroup: 1000
+
