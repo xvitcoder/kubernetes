@@ -14,4 +14,4 @@ echo "[TASK 3] Generate metallb secret key"
 kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)"
 
 echo "[TASK 4] Apply metallb ConfigMap"
-kubectl apply -f metallb-config-map.yaml
+kubectl apply -f `dirname $0`/metallb-config-map.yaml

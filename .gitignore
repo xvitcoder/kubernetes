@@ -1,3 +1,4 @@
 vagrant-bash/.vagrant
 vagrant-ansible/.vagrant
 .idea
+.DS_Store
