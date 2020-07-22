@@ -1,3 +1,6 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
 IMAGE_NAME = "ubuntu/focal64"
 NODE_COUNT = 2
 
