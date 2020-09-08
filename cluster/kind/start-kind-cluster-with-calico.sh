@@ -15,3 +15,8 @@ sh ../yaml/metallb/setup-metallb.sh
 # Setup nfs-client-provisioner
 echo "[TASK 4] Setup nfs-client-provisioner"
 sh ../yaml/nfs-client-provisioner/setup-nfs-client-provisioner.sh
+
+# Unset host path storage class as default
+echo "[TASK 5] Unset host path storage class as default"
+kubectl patch storageclass standard -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+

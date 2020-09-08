@@ -8,4 +8,6 @@ echo "[TASK 1] Install nfs-client-provisioner helm chart"
 helm install nfs-client-provisioner stable/nfs-client-provisioner \
         --set nfs.server=$NFS_SERVER_IP \
         --set nfs.path=$NFS_SERVER_PATH \
-        --set storageClass.defaultClass=true
+        --set storageClass.defaultClass=true \
+        --set storageClass.name="nfs" \
+        --namespace kube-system
