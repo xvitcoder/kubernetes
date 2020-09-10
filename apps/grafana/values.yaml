@@ -143,9 +143,9 @@ ingress:
     kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   labels: {}
-  path: /grafana
+  path: /
   hosts:
-    - kubernetes.local
+    - grafana.kubernetes.local
   ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
   extraPaths: []
   # - path: /*

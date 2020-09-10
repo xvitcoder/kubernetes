@@ -146,7 +146,7 @@ master:
   targetPort: 8080
   # For minikube, set this to NodePort, elsewhere use LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
-  serviceType: LoadBalancer
+  serviceType: ClusterIP
   # Jenkins master service annotations
   serviceAnnotations: {}
   # Jenkins master custom labels
@@ -380,7 +380,7 @@ master:
   overwriteJobs: false
 
   ingress:
-    enabled: false
+    enabled: true
     # Override for the default paths that map requests to the backend
     paths: []
     # - backend:
@@ -394,13 +394,13 @@ master:
     # For Kubernetes v1.14+, use 'networking.k8s.io/v1beta1'
     apiVersion: "extensions/v1beta1"
     labels: {}
-    annotations: {}
-    # kubernetes.io/ingress.class: nginx
+    annotations: 
+      kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
     # Set this path to jenkinsUriPrefix above or use annotations to rewrite path
-    # path: "/jenkins"
+      path: /
     # configures the hostname e.g. jenkins.example.com
-    hostName:
+    hostName: jenkins.kubernetes.local
     tls:
     # - secretName: jenkins.cluster.local
     #   hosts:
@@ -608,7 +608,7 @@ persistence:
   ##
   storageClass: nfs
   annotations: {}
-  accessMode: "ReadWriteOnce"
+  accessMode: "ReadWriteMany"
   size: "8Gi"
   volumes:
   #  - name: nothing

@@ -140,7 +140,7 @@ controller:
 
   ## DaemonSet or Deployment
   ##
-  kind: Deployment
+  kind: DaemonSet
 
   ## Annotations to be added to the controller deployment
   ##
@@ -388,9 +388,9 @@ controller:
     enabled: true
 
     service:
-      annotations: {}
-      # prometheus.io/scrape: "true"
-      # prometheus.io/port: "10254"
+      annotations: 
+       prometheus.io/scrape: "true"
+       prometheus.io/port: "10254"
 
       ## Deprecated, instead simply do not provide a clusterIP value
       omitClusterIP: false
@@ -422,7 +422,7 @@ controller:
       enabled: false
       additionalLabels: {}
       namespace: ""
-      rules:  []
+      rules: []
         # # These are just examples rules, please adapt them to your needs
         # - alert: TooMany500s
         #   expr: 100 * ( sum( nginx_ingress_controller_requests{status=~"5.+"} ) / sum(nginx_ingress_controller_requests) ) > 5
@@ -458,7 +458,7 @@ defaultBackend:
   ##
   enabled: true
 
-  name: default-backend
+  name: default-http-backend
   image:
     repository: k8s.gcr.io/defaultbackend-amd64
     tag: "1.5"

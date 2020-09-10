@@ -121,7 +121,7 @@ alertmanager:
     ## Must be provided if Ingress is enabled
     ##
     hosts: 
-      - kubernetes.local/alertmanager
+      - alertmanager.kubernetes.local
     #   - alertmanager.domain.com
     #   - domain.com/alertmanager
 
@@ -706,7 +706,7 @@ server:
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-      - kubernetes.local/prometheus
+      - prometheus.kubernetes.local
     #   - prometheus.domain.com
     #   - domain.com/prometheus
 
@@ -1000,7 +1000,7 @@ pushgateway:
     ## Must be provided if Ingress is enabled
     ##
     hosts: 
-      - kubernetes.local/pushgateway
+      - pushgateway.kubernetes.local
     #   - pushgateway.domain.com
     #   - domain.com/pushgateway
 
