@@ -575,23 +575,21 @@ agent:
 
 # Here you can add additional agents
 # They inherit all values from `agent` so you only need to specify values which differ
-additionalAgents: {}
-#  maven:
-#    podName: maven
-#    customJenkinsLabels: maven
-#    # An example of overriding the jnlp container
-#    # sideContainerName: jnlp
-#    image: jenkins/jnlp-agent-maven
-#    tag: latest
-#  python:
-#    podName: python
-#    customJenkinsLabels: python
-#    sideContainerName: python
-#    image: python
-#    tag: "3"
-#    command: "/bin/sh -c"
-#    args: "cat"
-#    TTYEnabled: true
+additionalAgents:
+  jdk14:
+    podName: jdk14
+    customJenkinsLabels: jdk14
+    # An example of overriding the jnlp container
+    # sideContainerName: jnlp
+    image: xvitcoder/jenkins-jdk14-slave
+    tag: latest
+  jdk8:
+    podName: jdk8
+    customJenkinsLabels: jdk8
+    # An example of overriding the jnlp container
+    # sideContainerName: jnlp
+    image: xvitcoder/jenkins-jdk8-slave
+    tag: latest
 
 persistence:
   enabled: true
