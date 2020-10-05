@@ -2,11 +2,11 @@
 
 # Start kubernetes cluster
 echo "[TASK 1] Start kubernetes cluster"
-kind create cluster --name kubernetes --config cluster-with-calico.yaml
+kind create cluster --name kubernetes --config cluster.yaml
 
 # Create calico network
 echo "[TASK 2] Create calico network"
-kubectl create -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
+kubectl create -f https://docs.projectcalico.org/v3.15/manifests/calico.yaml
 
 # Setup metallb
 echo "[TASK 3] Setup metallb"

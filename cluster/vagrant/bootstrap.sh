@@ -3,10 +3,9 @@
 # Update hosts file
 echo "[TASK 1] Update /etc/hosts file"
 cat >>/etc/hosts<<EOF
-172.42.42.100 k8s-master.xvitcoder.com    k8s-master
-172.42.42.101 k8s-worker-1.xvitcoder.com  k8s-worker-1
-172.42.42.102 k8s-worker-2.xvitcoder.com  k8s-worker-2
-172.42.42.10  k8s-nfs.xvitcoder.com       k8s-nfs
+172.16.16.100 k8s-master.kubernetes.local k8s-master
+172.16.16.101 k8s-worker-1.kubernetes.local k8s-worker-1
+172.16.16.102 k8s-worker-2.kubernetes.local k8s-worker-2
 EOF
 
 # Install docker from Docker-ce repository

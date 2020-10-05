@@ -1,0 +1,4 @@
+controller:
+  service:
+    enabled: true
+    loadBalancerIP: "172.16.16.20"
