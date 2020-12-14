@@ -1,24 +1,41 @@
-replicaCount: 1
-
 service:
   name: registry
   type: LoadBalancer
   port: 5000
-  loadBalancerIP: 172.42.42.20
+  loadBalancerIP: 172.16.16.50
 
+ingress:
+  enabled: true
+  path: /
+  hosts:
+    - registry.kubernetes.local
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  #   cert-manager.io/cluster-issuer: letsencrypt
+  #   nginx.ingress.kubernetes.io/proxy-body-size: "0"
+  #   nginx.ingress.kubernetes.io/proxy-read-timeout: "6000"
+  #   nginx.ingress.kubernetes.io/proxy-send-timeout: "6000"
+  # tls:
+  #   - secretName: letsencrypt-secret
+  #     hosts:
+  #     - registry.kubernetes.local
+  # tls:
+  #   - secretName: letsencrypt-secret
+  #     hosts:
+  #       - registry.kubernetes.local
 persistence:
-  accessMode: 'ReadWriteOnce'
+  accessMode: 'ReadWriteMany'
   enabled: true
   size: 20Gi
-  storageClass: 'managed-nfs-storage'
+  storageClass: 'nfs'
 
+# Set this to name of secret for tls certs
 # tlsSecretName: registry.docker.example.com
-secrets:
-  haSharedSecret: "admin"
-  htpasswd: "admin"
+# secrets:
+#   haSharedSecret: "admin"
+#   htpasswd: "admin"
 
 securityContext:
   enabled: true
   runAsUser: 1000
   fsGroup: 1000
-
