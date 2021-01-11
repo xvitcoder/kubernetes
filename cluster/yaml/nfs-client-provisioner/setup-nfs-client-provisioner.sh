@@ -10,4 +10,5 @@ helm install nfs-client-provisioner stable/nfs-client-provisioner \
         --set nfs.path=$NFS_SERVER_PATH \
         --set storageClass.defaultClass=true \
         --set storageClass.name="nfs" \
+        --set nfs.mountOptions='[ "vers=4.1" "rsize=32768", "wsize=32768" ]' \
         --namespace kube-system

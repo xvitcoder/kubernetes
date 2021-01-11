@@ -1,0 +1,13 @@
+nfs:
+  server: 192.168.0.10
+  path: /srv/nfs/kubedata
+  mountOptions:
+    - nfsvers=4
+
+storageClass:
+  create: true
+  defaultClass: true
+  name: nfs
+  allowVolumeExpansion: true
+  reclaimPolicy: Delete
+  archiveOnDelete: true

@@ -12,9 +12,9 @@ alertmanager:
   persistentVolume:
     enabled: true
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     size: 2Gi
-    storageClass: "nfs"
+    storageClass: "standard"
 
 ##  
 kubeStateMetrics:
@@ -38,9 +38,9 @@ server:
   persistentVolume:
     enabled: true
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     size: 8Gi
-    storageClass: "nfs"
+    storageClass: "standard"
     
 ##  
 pushgateway:
@@ -56,7 +56,7 @@ pushgateway:
   persistentVolume:
     enabled: true
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     size: 2Gi
-    storageClass: "nfs"
+    storageClass: "standard"
 

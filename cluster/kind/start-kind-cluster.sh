@@ -1,22 +1,24 @@
 #!/bin/bash
 
+cecho(){
+    RED="\033[0;31m"
+    GREEN="\033[0;32m"
+    YELLOW="\033[1;33m"
+    # ... ADD MORE COLORS
+    NC="\033[0m" # No Color
+
+    printf "${!1}${2} ${NC}\n"
+}
+
 # Start kubernetes cluster
-echo "[TASK 1] Start kubernetes cluster"
+cecho "GREEN" "[TASK 1] Start kubernetes cluster"
 kind create cluster --name kubernetes --config cluster.yaml
 
 # Create calico network
-echo "[TASK 2] Create calico network"
-kubectl create -f https://docs.projectcalico.org/v3.15/manifests/calico.yaml
+cecho "GREEN" "[TASK 2] Create calico network"
+kubectl create -f https://docs.projectcalico.org/manifests/calico.yaml
 
-# Setup metallb
-echo "[TASK 3] Setup metallb"
-sh ../yaml/metallb/setup-metallb.sh
-
-# Setup nfs-client-provisioner
-echo "[TASK 4] Setup nfs-client-provisioner"
-sh ../yaml/nfs-client-provisioner/setup-nfs-client-provisioner.sh
-
-# Unset host path storage class as default
-echo "[TASK 5] Unset host path storage class as default"
-kubectl patch storageclass standard -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"false"}}}'
+cecho "GREEN" "==========================================="
+cecho "GREEN" ".:: KUBERNETES CLUSTER IS BEING STARTED ::."
+cecho "GREEN" "==========================================="
 
